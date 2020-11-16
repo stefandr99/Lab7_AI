@@ -13,15 +13,26 @@ inputs = np.array([[0, 0],
                   [0, 1],
                   [1, 0],
                   [1, 1]])
+operation = input("Enter output operation: ")
 
-real_outputs = np.array([[0, 1, 1, 0]]).T
+op = list()
+op.append(int(operation[0]))
+op.append(int(operation[2]))
+op.append(int(operation[4]))
+op.append(int(operation[6]))
+
+rate = input("Enter rate: ")
+rate = float(rate)
+
+epochs = input("Enter number of epochs: ")
+
+real_outputs = np.array([list(op)]).T
 
 hidden_weights = 2 * np.random.random((2, 2)) - 1
 output_weights = 2 * np.random.random((2, 1)) - 1
-rate = 1
 
 
-for epoch in range(10000):
+for epoch in range(int(epochs)):
     hidden_layer = sigmoid(np.dot(inputs, hidden_weights))
     outputs_generated = sigmoid(np.dot(hidden_layer, output_weights))
 
